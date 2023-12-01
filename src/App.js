@@ -5,18 +5,20 @@ import Header from './component/Header';
 import Watchlist from './component/Watchlist';
 import Watched from './component/Watched';
 import Add from './component/Add';
+import { GlobalProvider } from './context/GlobalState';
 
 function App() {
   return (
-    <Router>
-      <Header></Header>
-      <Routes>
-        <Route path="/" element={<Watchlist />}></Route>
-        <Route path="/watched" element={<Watched />}></Route>
-        <Route path="/add" element={<Add />}></Route>
-
-      </Routes>
-    </Router>
+    <GlobalProvider>
+      <Router>
+        <Header></Header>
+        <Routes>
+          <Route path="/" element={<Watchlist />}></Route>
+          <Route path="/watched" element={<Watched />}></Route>
+          <Route path="/add" element={<Add />}></Route>
+        </Routes>
+      </Router>
+    </GlobalProvider>
   );
 }
 
